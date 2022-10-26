@@ -1,0 +1,26 @@
+specVersion: 1.0.0
+name: testnet-subql-barnacle
+version: 0.0.4
+runner:
+  node:
+    name: "@subql/node"
+    version: ">=1.0.0"
+  query:
+    name: "@subql/query"
+    version: "*"
+description: This project can be use as a starting po...
+repository: https://github.com/octopus-appchains/testnet-subql-barnacle.git
+schema:
+  file: ./schema.graphql
+network:
+  endpoint: >-
+    wss://gateway.testnet.octopus.network/barnacle0928/9mw012zuf27soh7nrrq3a4p0s2ti3cyn
+  genesisHash: "0x3e8620ebb04720c4bfc6708f372572f84f1a9a29a55f859552ef456fee3b73af"
+dataSources:
+  - kind: substrate/Runtime
+    startBlock: 1
+    mapping:
+      file: ./dist/index.js
+      handlers:
+        - handler: handleBlock
+          kind: substrate/BlockHandler
