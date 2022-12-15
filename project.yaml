@@ -1,10 +1,10 @@
 specVersion: 1.0.0
 name: testnet-subql-barnacle
-version: 0.0.4
+version: 1.0.0
 runner:
   node:
     name: "@subql/node"
-    version: ">=1.0.0"
+    version: ">=1.13.3"
   query:
     name: "@subql/query"
     version: "*"
@@ -15,7 +15,7 @@ schema:
 network:
   endpoint: >-
     wss://gateway.testnet.octopus.network/barnacle0928/9mw012zuf27soh7nrrq3a4p0s2ti3cyn
-  genesisHash: "0x3e8620ebb04720c4bfc6708f372572f84f1a9a29a55f859552ef456fee3b73af"
+  genesisHash: "0xb3d6017fd8f67d1d9970a010ee1bbf0bc12c5ff2d2c7b9c311a11332cb7b3a53"
 dataSources:
   - kind: substrate/Runtime
     startBlock: 1
