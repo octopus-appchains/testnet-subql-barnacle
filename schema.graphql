@@ -105,7 +105,7 @@ type AppchainToNearTransfer @entity {
   item: BigInt @index
   timestamp: Date @index
 
-  upwardMessage: UpwardMessage @index
+  sequence: BigInt @index
   extrinsic: Extrinsic
 }
 

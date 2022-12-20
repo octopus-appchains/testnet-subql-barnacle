@@ -62,18 +62,12 @@ export async function handleBlock(block: SubstrateBlock): Promise<void> {
 
   await store.bulkCreate("Account", newAccounts);
   await store.bulkCreate("Extrinsic", newExtrinsics);
-
-  await Promise.all([
-    store.bulkCreate("Call", newCalls),
-    store.bulkCreate("Event", newEvents),
-    store.bulkCreate("SystemTokenTransfer", newSystemTokenTransfers),
-    store.bulkCreate("UpwardMessage", newUpwardMessages),
-  ]);
-
-  await Promise.all([
-    store.bulkCreate("AppchainToNearTransfer", newAppchainToNearTransfers),
-    store.bulkCreate("NearToAppchainTransfer", newNearToAppchainTransfers),
-  ]);
+  await store.bulkCreate("Call", newCalls);
+  await store.bulkCreate("Event", newEvents);
+  await store.bulkCreate("SystemTokenTransfer", newSystemTokenTransfers);
+  await store.bulkCreate("UpwardMessage", newUpwardMessages);
+  await store.bulkCreate("AppchainToNearTransfer", newAppchainToNearTransfers);
+  await store.bulkCreate("NearToAppchainTransfer", newNearToAppchainTransfers);
 }
 
 function handleEvent(

@@ -21,7 +21,7 @@ export function handleAppchainToNearTransfer(
     newAppchainToNearTransfer.receiver = receiver.toString();
     newAppchainToNearTransfer.type = method;
     newAppchainToNearTransfer.amount = BigInt(amount.toString());
-    newAppchainToNearTransfer.upwardMessageId = sequence.toString();
+    newAppchainToNearTransfer.sequence = BigInt(sequence.toString());
   } else if (method === "Nep141Burned") {
     const [assetId, sender, receiver, amount, fee, sequence] = data;
     newAppchainToNearTransfer.senderId = sender.toString();
@@ -29,7 +29,7 @@ export function handleAppchainToNearTransfer(
     newAppchainToNearTransfer.type = method;
     newAppchainToNearTransfer.assetId = Number(assetId.toString());
     newAppchainToNearTransfer.amount = BigInt(amount.toString());
-    newAppchainToNearTransfer.upwardMessageId = sequence.toString();
+    newAppchainToNearTransfer.sequence = BigInt(sequence.toString());
   } else if (method === "NonfungibleLocked") {
     const [collection, item, sender, receiver, fee, sequence] = data;
     newAppchainToNearTransfer.senderId = sender.toString();
@@ -37,7 +37,7 @@ export function handleAppchainToNearTransfer(
     newAppchainToNearTransfer.type = method;
     newAppchainToNearTransfer.collection = BigInt(collection.toString());
     newAppchainToNearTransfer.item = BigInt(item.toString());
-    newAppchainToNearTransfer.upwardMessageId = sequence.toString();
+    newAppchainToNearTransfer.sequence = BigInt(sequence.toString());
   }
   newAppchainToNearTransfer.timestamp = block.timestamp;
   newAppchainToNearTransfer.extrinsicId = extrinsicId;
