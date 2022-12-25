@@ -89,7 +89,26 @@ type UpwardMessage @entity {
   payloadType: String @index
   payload: String
   timestamp: Date @index
+  block: Block
+}
 
+type BridgeMessageEvent @entity {
+  id: ID!
+  eventType: String @index
+  timestamp: Date @index
+  block: Block
+}
+
+type LastBridgeMessageEventSequence @entity {
+  id: ID!
+  sequence: Int @index
+}
+
+type EraEvent @entity {
+  id: ID!
+  eventType: String @index
+  eraIndex: Int @index
+  timestamp: Date @index
   block: Block
 }
 
@@ -102,10 +121,10 @@ type AppchainToNearTransfer @entity {
   assetId: Int @index
   amount: BigInt @index
   collection: BigInt @index
-  item: BigInt @index
+  item: BigInt
+  fee: BigInt
+  sequence: Int @index
   timestamp: Date @index
-
-  sequence: BigInt @index
   extrinsic: Extrinsic
 }
 
@@ -119,8 +138,7 @@ type NearToAppchainTransfer @entity {
   amount: BigInt @index
   collection: BigInt @index
   item: BigInt @index
+  sequence: Int @index
   timestamp: Date @index
-  sequence: BigInt @index
-
   extrinsic: Extrinsic
 }
